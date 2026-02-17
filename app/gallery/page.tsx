@@ -1,4 +1,6 @@
-const photos = [
+type Photo = { src: string; alt: string };
+
+const photos: Photo[] = [
   // After you upload images into /public/photos, add file names here like:
   // { src: "/photos/dance1.jpg", alt: "Ballroom moment" },
 ];
@@ -19,8 +21,10 @@ export default function GalleryPage() {
       ) : (
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
           {photos.map((p) => (
-            <div key={p.src} className="rounded-2xl overflow-hidden border border-white/10 bg-white/5">
-              {/* We’ll switch to next/image later once images are in */}
+            <div
+              key={p.src}
+              className="rounded-2xl overflow-hidden border border-white/10 bg-white/5"
+            >
               <img src={p.src} alt={p.alt} className="w-full h-64 object-cover" />
             </div>
           ))}
